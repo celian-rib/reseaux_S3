@@ -56,7 +56,7 @@ Il s'agit d'un modéle se divisant en 4 couches différentes:
 
 Ci-dessous, un schéma récapitulatif des modéles **OSI** et **TCP/IP**.
 
-![](/home/guillaume/.config/marktext/images/2022-01-18-15-14-11-image.png)
+![](./assets/2022-01-18-15-14-11-image.png)
 
 ---
 
@@ -96,7 +96,7 @@ Il utilise:
 
 * Le port 67 (port serveur)
 
-![](/home/guillaume/Documents/Cours_S3/reseau/revisions/assets/2022-01-18-16-03-37-image.png)
+![](./assets/2022-01-18-16-03-37-image.png)
 
 **ACK**: Acquittement, message de confirmation de bonne réception envoyé par le serveur au client.
 
