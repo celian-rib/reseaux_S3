@@ -327,11 +327,13 @@ startx
 
 #### 43) Declaring the new subdomain
 
+`/etc/bind/named.conf.local`
+
 ![](./assets/2022-01-11-15-34-19-image.png)
 
 #### 44) Creating zone file
 
-`/etc/dinb/db.perf.netas`
+`/etc/bind/db.perf.netas`
 
 ![](./assets/2022-01-11-15-37-27-image.png)
 
@@ -347,10 +349,26 @@ startx
 
 ![](./assets/2022-01-11-15-44-23-image.png)
 
-#### 48) Pingin scale.perf.netas on client1
+#### 48) Pinging scale.perf.netas on client1
 
 The pinged IP does change randomly between the p1 and p2 IPs
 
 #### 49) Installing iperf on client1 and client2
 
+![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-18-16-29-57-image.png)
 
+#### 50) Updating dns1 and dns2 so dns2 is a secondary server on the `perf.netas` zone
+
+`named.conf.local` on `DNS2`
+
+![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-18-16-46-20-image.png)
+
+#### 51) Ping from client2
+
+![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-18-16-47-30-image.png)
+
+#### 52) Speed test on client1 & client2
+
+![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-18-16-48-52-image.png)
+
+#### 53)
