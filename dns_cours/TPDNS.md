@@ -25,11 +25,11 @@ client2 : 192.168.0.20
 
 #### 4) Ping between LAN USER machines
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-08-42-image.png)
+![](./assets/2022-01-04-14-08-42-image.png)
 
 #### 5) Routing tables
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-09-42-image.png)
+![](./assets/2022-01-04-14-09-42-image.png)
 
 ---
 
@@ -47,13 +47,13 @@ In **dns1** `/etc/hosts`
 
 > From dns1
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-14-40-image.png)
+![](./assets/2022-01-04-14-14-40-image.png)
 
 #### 9) /etc/resolv.conf
 
 > Checking the file on all machines
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-15-53-image.png)
+![](./assets/2022-01-04-14-15-53-image.png)
 
 #### 10) Forcing to use our own dns server
 
@@ -103,7 +103,7 @@ After `ifdown eth0 && ifup eth0` the content of `/etc/resolv.conf` is now :
 
 `/etc/bind/named.conf.options` on **dns1** and **dns2** :
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-31-57-image.png)
+![](./assets/2022-01-04-14-31-57-image.png)
 
 #### 13) Configuring primary server (dns1)
 
@@ -128,13 +128,13 @@ cp /etc/bind/db.empty /etc/bind/db.netas
 
 `/etc/bind/db.netas`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-46-16-image.png)
+![](./assets/2022-01-04-14-46-16-image.png)
 
 #### 17) Adding `A` entry
 
 `/etc/bind/db.netas`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-49-13-image.png)
+![](./assets/2022-01-04-14-49-13-image.png)
 
 #### 18) Restarting the DNS service
 
@@ -162,25 +162,25 @@ systemctl restart named
 > systemctl status named
 > ```
 
-> ![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-53-00-image.png)
+> ![](./assets/2022-01-04-14-53-00-image.png)
 
 #### 20) Ping from client to dns1 using its domain name
 
 > From **client1**
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-54-52-image.png)
+![](./assets/2022-01-04-14-54-52-image.png)
 
 #### 21) Adding `A` entry for dns2
 
 > The file is still  `/etc/bind/db.netas`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-14-59-07-image.png)
+![](./assets/2022-01-04-14-59-07-image.png)
 
 Dont forget to increment the Serial number and `systemctl reload named`
 
 #### 22) Adding `CNAME` entries (aliases)
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-15-04-11-image.png)
+![](./assets/2022-01-04-15-04-11-image.png)
 
 `<increment> Serial + systemctl reload named`
 
@@ -188,13 +188,13 @@ Dont forget to increment the Serial number and `systemctl reload named`
 
 > On **client1**
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-15-05-40-image.png)
+![](./assets/2022-01-04-15-05-40-image.png)
 
 #### 24) Adding an `NS` entry to identify dns2 as a zone
 
 `/etc/bind/db.netas`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-15-10-13-image.png)
+![](./assets/2022-01-04-15-10-13-image.png)
 
 #### 25) Setting up netas as secondary on dns2
 
@@ -216,11 +216,11 @@ systemctl restart named
 
 Then on **client2** :
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-15-15-49-image.png)
+![](./assets/2022-01-04-15-15-49-image.png)
 
 #### 27) Using `host` command on clients
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-15-19-11-image.png)
+![](./assets/2022-01-04-15-19-11-image.png)
 
 #### 28) Comparing dns2 and dns1 `db.netas` file
 
@@ -246,7 +246,7 @@ On **dns1** :
 nmap -T5 -sP 10.0.0.0/22
 ```
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-04-15-34-37-image.png)
+![](./assets/2022-01-04-15-34-37-image.png)
 
 #### 31) Connect over ssh to all found IPs
 
@@ -269,7 +269,7 @@ ssh tc@<ip>
 
 `/etc/bind/db.netas`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-14-20-33-image.png)
+![](./assets/2022-01-11-14-20-33-image.png)
 
 > Serial number bumped up to 5
 > 
@@ -277,11 +277,11 @@ ssh tc@<ip>
 
 #### 33) Add a `CNAME` entry for the 3 web servers
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-14-25-34-image.png)
+![](./assets/2022-01-11-14-25-34-image.png)
 
 **34)** Test from client1 and client2
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-14-29-30-image.png)
+![](./assets/2022-01-11-14-29-30-image.png)
 
 #### 35) 36) 37) Start web browser on client 1 and then client2
 
@@ -289,23 +289,23 @@ ssh tc@<ip>
 startx
 ```
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-14-35-53-image.png)
+![](./assets/2022-01-11-14-35-53-image.png)
 
 #### 38) Declaring inverse domain name zone for netas
 
 > `/etc/bind/named.conf.local` on `dns1`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-14-42-28-image.png)
+![](./assets/2022-01-11-14-42-28-image.png)
 
 > `/etc/bin/db.netas-rev`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-16-27-image.png)
+![](./assets/2022-01-11-15-16-27-image.png)
 
 #### 39) Check on client if the reverse domain name is working
 
 > On client2
 > 
-> ![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-12-59-image.png)
+> ![](./assets/2022-01-11-15-12-59-image.png)
 
 #### 40) Update dns2 configuration
 
@@ -313,39 +313,39 @@ startx
 
 `/etc/bind/named.conf.local`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-24-12-image.png)
+![](./assets/2022-01-11-15-24-12-image.png)
 
 #### 41) Testing on client2
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-24-48-image.png)
+![](./assets/2022-01-11-15-24-48-image.png)
 
 > Before and after the setup
 
 #### 42) Add new NS entry to the netas zone (subdomain setup)
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-32-24-image.png)
+![](./assets/2022-01-11-15-32-24-image.png)
 
 #### 43) Declaring the new subdomain
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-34-19-image.png)
+![](./assets/2022-01-11-15-34-19-image.png)
 
 #### 44) Creating zone file
 
 `/etc/dinb/db.perf.netas`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-37-27-image.png)
+![](./assets/2022-01-11-15-37-27-image.png)
 
 #### 45) Adding A entries for p1 and p2
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-40-06-image.png)
+![](./assets/2022-01-11-15-40-06-image.png)
 
 #### 46) Check on client1
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-41-35-image.png)
+![](./assets/2022-01-11-15-41-35-image.png)
 
 #### 47) Share A between p1 and p2
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-11-15-44-23-image.png)
+![](./assets/2022-01-11-15-44-23-image.png)
 
 #### 48) Pingin scale.perf.netas on client1
 
