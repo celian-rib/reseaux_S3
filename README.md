@@ -1,4 +1,4 @@
-# #Qu'est ce que Internet ?
+## Qu'est ce que Internet ?
 
 Internet est une **interconnexion de réseaux**.
 
@@ -155,7 +155,147 @@ Il utilise:
 
 ---
 
+# DNS
 
+> **Domain Name System**:  Cela permet de nommer des ressources sur Internet. Il en est un composant vital.
+
+Il permet nottament de :
+
+* Faire de la résolution de noms
+  
+  * Numéro IP de assomniak.fr ?
+
+* Faire de la résolution inverse 
+  
+  * Nom de 127.0.0.1 ?
+
+* Il fournit des services
+  
+  * Quelles machine reçoit le courrier pour assmoniak.fr ?
+
+![](/home/guillaume/Documents/Cours_S3/reseau/revisions/reseaux_S3/assets/2022-01-20-17-39-07-image.png)
+
+Exemple:
+
+> * info-ssh1.iut.u-bordeaux.fr fait partie du domaine **zone**  iut.u-bordeaux.fr
+> 
+> * qui est un **sous-domaine** de u-bordeaux.fr
+> 
+> * qui est dans le **Top Level Domain**(TLD) national fr
+> 
+> * qui est un **enfant** de la racine (root)
+
+### Serveurs, redondance
+
+> Les informations sur une zone sont détenues par **un serveur maître** et **quelques erveur esclaves.**
+
+### En résumé
+
+* **Serveur maître:** Il lit les données et les communiques à ses serveurs esclaves.
+
+* **Serveurs esclaves:** Obtient les données du serveur maître après leur configuration. Les serveurs esclaves servent de backups au serveur maître.
+
+> Chaque zone
+> 
+> * Est décrite par des serveurs (maîtres et esclaves)
+> 
+> * Connaît les serveurs de noms des sous-domaines.
+> 
+> Par exemple, la zone ".fr" cotient le nom "u-bordeaux.fr" et les noms qui s'en occupent.
+
+## Résolution
+
+Il y a deux méthodes de résolutions possibles:
+
+1. Via des requêtes **récursives**
+
+![](/assets/2022-01-20-17-52-44-image.png)
+
+2. Via des requêtes **itératives**
+
+![](/assets/2022-01-20-17-53-27-image.png)
+
+* Les résultats intermédiares sont mémorisés dans le **cache** afin de ne pas avoir à les redemander.
+
+* Ils ont une **durée de vie (TTL= Time To Live)**
+
+## Configuration client
+
+`/etc/resolv.conf: `
+
+```bash
+search maison.net
+domain maison.net
+nameserver 10.4.2.254
+```
+
+`/etc/nsswitch.conf`:
+
+```bash
+hosts files dns
+```
+
+## Configuration serveur, déclaration d'une zone et de son inverse
+
+`/etc/bind/named.conf ou /etc/bind/named.conf.local`:
+
+```bash
+zone "maison.net" {
+    type master;
+    file "/etc/bind/db−maison.net";
+};
+zone "2.4.10.in−addr.arpa" {
+    type master;
+    file "/etc/bind/db−2.4.10";
+};
+```
+
+## Configuration serveur, défintion d'une zone
+
+`/etc/bind/db-maison.net`: 
+
+```bash
+@ IN SOA entree.maison.net. admin.maison.net. (
+2019091702;    Serial
+604800;        Refresh
+86400;         Retry
+2419200;       Expire
+604800);       NegativeCacheTTL
+@         IN    NS    entree.maison.net.
+@         IN    MX10  entree
+entree    IN    A     10.4.2.254
+salon     IN    A     10.4.2.253
+escalier  IN    A     10.4.2.250
+living    IN    CNAME entree
+etage     IN    NS    escalier.maison.net.
+```
+
+## Configuration serveur, défintion d'une zone inverse
+
+`/etc/bind/db-2.4.10`:
+
+```bash
+@ IN SOA entree.maison.net. admin.maison.net. (
+2019100822;     Serial
+604800;         Refresh
+86400;          Retry
+2419200;        Expire
+604800);   Negative Cache TTL
+@     IN NS entree.maison.net.
+254   IN PTR entree.maison.net.
+253   IN PTR salon.maison.net.
+250   IN PTR escalier.maison.net.
+```
+
+## Configuration du serveur, pièges courants
+
+* **NE PAS OUBLIER LES "."  EN FIN. Sans le point, c'est relatif à la zone courante.**
+
+* **Ne pas oublier la résolution inverse**
+
+* **Penser à augmenter le numéro de version à chaque modification**
+
+---
 
 # Quelques commandes et définitions utiles
 
@@ -170,3 +310,7 @@ Il utilise:
 **ifup eth0**: Permet d'activer l'interface réseau eth0.
 
 **ifdown eth0**: Permet de désactiver l'interface réseau eth0.
+
+**host google.com**: Permet d'interroger les DNS de google.
+
+**host 8.8.8.8**: A partir de l'adresse, trouver le nom.
