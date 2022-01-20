@@ -28,7 +28,7 @@ Il s'agit d'un modéle se divisant en 4 couches différentes:
 
 1. **Accès Réseau**: Protocoles actifs, accès client/serveur
    
-   1. **HTTP**: HyperText Transfert Protocle, c'est un protocole de communication.
+   1. **[HTTP](https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol)**: HyperText Transfert Protocle, c'est un protocole de communication.
    
    2. **POP**: Post Office Protocole, c'est un protocole permettant de récupérer les courries électroniques.
    
