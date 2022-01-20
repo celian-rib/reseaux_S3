@@ -355,20 +355,20 @@ The pinged IP does change randomly between the p1 and p2 IPs
 
 #### 49) Installing iperf on client1 and client2
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-18-16-29-57-image.png)
+![](./assets/2022-01-18-16-29-57-image.png)
 
 #### 50) Updating dns1 and dns2 so dns2 is a secondary server on the `perf.netas` zone
 
 `named.conf.local` on `DNS2`
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-18-16-46-20-image.png)
+![](./assets/2022-01-18-16-46-20-image.png)
 
 #### 51) Ping from client2
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-18-16-47-30-image.png)
+![](./assets/2022-01-18-16-47-30-image.png)
 
 #### 52) Speed test on client1 & client2
 
-![](/mnt/roost/users/criboulet/Documents/reseaux/dns_cours/assets/2022-01-18-16-48-52-image.png)
+![](./assets/2022-01-18-16-48-52-image.png)
 
 #### 53)

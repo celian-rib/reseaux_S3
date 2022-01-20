@@ -1,4 +1,4 @@
-## Qu'est ce que Internet ?
+## Qu'est ce qu'Internet ?
 
 Internet est une **interconnexion de réseaux**.
 
