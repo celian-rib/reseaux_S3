@@ -1,10 +1,18 @@
+<u>Ressources :</u>
+
+[[Correction DS 2020-21]](./DS/ds_2020.md)
+
+[[Cheat sheet commandes et fichiers]](./cheat_sheets/commands_files.md)
+
+---
+
 ## Qu'est ce qu'Internet ?
 
 Internet est une **interconnexion de réseaux**.
 
 > C'est un réseau de réseau ou de sous-réseaux.
 
-## Caractéristiques de internet
+## Caractéristiques d'internet
 
 - Un ensemble de logiciels et de **protocoles**
 
