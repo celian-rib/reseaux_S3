@@ -1,9 +1,11 @@
 # __Network Administration - Worksheet 1__
+
 > Célian RIBOULET
 
 > S3B"
 
 ***
+
 </br>
 </br>
 </br>
@@ -18,14 +20,15 @@
 After launching all VMs, we can try to change the user password.
 
 I have changed the spy VM password to ```plopplop``` using :
+
 ```properties
 passwd root
 ```
 
-
-## 4) 
+## 4)
 
 I have added the user ```celian``` on spy with the password ```plopplop```
+
 ```properties
 adduser celian
 ```
@@ -34,6 +37,7 @@ adduser celian
 </br>
 
 ***
+
 ## __System administration__
 
 ## 9)
@@ -49,8 +53,8 @@ Frist sub-network will be using addresses starting with :
 Second will be using addresses starting with : 
 ```192.168.1.X```
 
-
 ## 11)
+
 opeth __eth0__ : ```192.168.0.1```
 
 nightwish __eth0__ : ```192.168.0.2```
@@ -65,6 +69,7 @@ opeth __eth1__ : ```192.168.1.1```
 </br>
 
 ***
+
 ## __Dynamic configuration__
 
 ## 12)
@@ -72,27 +77,37 @@ opeth __eth1__ : ```192.168.1.1```
 > It is better to use the ip command as it is more modern than ifconfig
 
 opeth eth0 : 
+
 ```properties
 ip addr add 192.168.0.1/24 dev eth0
 ```
+
 nightwish eth0 : 
+
 ```properties
 ip addr add 192.168.0.2/24 dev eth0
 ```
+
 zonario eth0 : 
+
 ```properties
 ip addr add 192.168.0.2/24 dev eth0
 ```
+
 opeht eth1 : 
+
 ```properties
 ip addr add 192.168.1.1/24 dev eth1
-``` 
+```
+
 (spy) alcest eth0 : 
+
 ```properties
 ip addr add 192.168.1.2/24 dev eth0
 ```
 
 We then run the following command on machines (with eth1 if required)
+
 ```properties
 ip link set eth0 up
 ```
@@ -102,19 +117,22 @@ ip link set eth0 up
 Nightwish and alcest still don't know that they need to use opeth as a gateway to communnicate.
 
 ## 16)
+
 In order to setup the gateways, we run the following command : ```route add default gw <ip>```
 
 On nightwish and zonaria: 
+
 ```properties
 route add default gw 192.168.0.1
 ```
 
 On alcest : 
+
 ```properties
 route add default gw 192.168.1.1
 ```
 
-## 17)
+## 17)
 
 We can know connect from nightwish to opeth over ssh :
 
@@ -128,6 +146,7 @@ Sur nightwish
 ## 19)
 
 In /etc/hosts de nightwish :
+
 ```
 192.168.0.3     zonaria
 192.168.0.1     opeth
@@ -145,6 +164,7 @@ The is beacause we just did a dynamic configuration.
 </br>
 
 ***
+
 ## __Static configuration__
 
 > The kind of configuration we have done before is not very practical as everything is lost after a restart
@@ -152,6 +172,7 @@ The is beacause we just did a dynamic configuration.
 ## 21) 22) 23) 24) 25)
 
 File ```/etc/network/interfaces``` on opeth :
+
 ```
 auto lo
 iface lo inet loopback
@@ -179,11 +200,13 @@ ifdown eth0
 ```
 
 Then we make it up again
+
 ```
 ifup eth0
 ```
 
 Then we try to ping opeth and it should work
+
 ```
 ping opeth
 ```
@@ -192,9 +215,10 @@ ping opeth
 </br>
 
 ***
-## __Web server setup__
 
-## 28) 
+## __Web server setup__
+
+## 28)
 
 > Content of the web page that will be runned by the web server
 

@@ -4,8 +4,6 @@
 
 ***
 
-
-
 ### 2) Choosing addresses for both dhcp servers
 
 **dhcp1 :**
@@ -14,17 +12,11 @@
 ip addr add 192.168.1.1/24 dev eth0
 ```
 
-
-
-
 **dhcp2 :**
 
 ```bash
 ip addr add 192.168.2.1/24 dev eth0
 ```
-
-
-
 
 ### 3) Interfaces configuration on both DHCP servers
 
@@ -103,7 +95,7 @@ systemctl restart isc-dhcp-server
 
 ### 10) Checking DHCP service status
 
-```systemctl status isc-dhcp-server
+```systemctl
 systemctl status isc-dhcp-server
 ```
 
@@ -128,8 +120,6 @@ The dhcp1 server does see the DHCP Discover request from client 1 but is not giv
 ![](/mnt/roost/users/criboulet/Documents/reseaux/TP2/Q12.png)
 
 > The DHCP is not responding a DHCP Offer, this is because we haven't setup the available addresses range into the server's ```etc/dhcp/dhcpd.conf``` file. The server is actually not able to give an available IP address to any client.
-
-
 
 ### 14) Addresses range setup on the DHCP server
 
@@ -191,8 +181,6 @@ ip addr
 
 > Client2 does have the IP 192.168.1.20 as we wave configured it in the dhcp server's config file.
 
-
-
 ### 24) Checking if both clients can communicate
 
 Here client2 can communicate with client1 and dhcp1 :
@@ -220,8 +208,6 @@ The lease is renewed every 15 secondes
 ### 29) Same addresses ?
 
 All clients has the same addresses after a renewal, this is the main goal of asking the dhcp server for a renewal.
-
-
 
 ### 30-31) Shuting down the DHCP service
 
