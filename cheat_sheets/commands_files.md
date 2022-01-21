@@ -4,7 +4,7 @@
 
 </br>
 
-`ip addr` 
+`ip addr (ou alors : ifconfig)` 
 
 > Affiche la configuration réseau de la machine (Adresse IP nottament)
 
@@ -24,7 +24,7 @@
 
 </br>
 
-`ip addr add 192.168.1.2/24 dev eth0`
+`ip addr add 192.168.1.2/24 dev eth0 (ou alors : ifconfig eth0 192.168.1.2 netmask 255.255.255.0)`
 
 > Donne à l'interface eth0 l'adresse `192.168.1.2` et le masque `255.255.255.0`
 
