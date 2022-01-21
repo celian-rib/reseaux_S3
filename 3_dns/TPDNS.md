@@ -107,7 +107,7 @@ After `ifdown eth0 && ifup eth0` the content of `/etc/resolv.conf` is now :
 
 #### 13) Configuring primary server (dns1)
 
-> Add add a new dns zone on `/etc/bind/named.conf.loal`
+> Add a new dns zone on `/etc/bind/named.conf.loal`
 
 ```
 zone "netas" {
