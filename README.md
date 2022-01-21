@@ -193,6 +193,9 @@ Exemple:
 > 
 > * qui est un **enfant** de la racine (root)
 
+![image](https://user-images.githubusercontent.com/38594012/150603448-50e6d1e2-71bd-4f2c-a104-b3dcbe3b1b12.png)
+
+
 ### Serveurs, redondance
 
 > Les informations sur une zone sont détenues par **un serveur maître** et **quelques erveur esclaves.**
